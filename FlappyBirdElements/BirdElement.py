@@ -12,8 +12,9 @@ class Bird(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.width = width
         self.height = height
-        self.image = pygame.Surface((width, height))
-        self.image.fill(color)
+        self.image = pygame.image.load("images/bird1.png") # pygame.Surface((width, height))
+        #self.image.fill(color)
+        self.image = pygame.transform.scale(self.image, (width, height))
         self.rect = self.image.get_rect()
         self.clock = pygame.time.Clock
         self.fps = fps

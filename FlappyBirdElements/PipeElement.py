@@ -9,8 +9,9 @@ import ConstValues
 class Pipe(pygame.sprite.Sprite):
     def __init__(self, width, height, color, winWidth, winHeight, pos, all_sprites):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((width, height))
-        self.image.fill(color)
+        self.image = pygame.image.load("images/pipe1.png") #pygame.Surface((width, height))
+        self.image = pygame.transform.scale(self.image, (width, height))
+        #self.image.fill(color)
         self.rect = self.image.get_rect()
         self.clock = pygame.time.Clock
         self.rect.left = winWidth
