@@ -4,7 +4,7 @@ import ConstValues
 
 WHITE = ConstValues.WHITE
 BLACK = ConstValues.BLACK
-
+#
 class MenuElement():
     def __init__(self, width=0, height=0):
         self.text = ""

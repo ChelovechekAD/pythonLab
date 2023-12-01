@@ -102,7 +102,7 @@ def createMsgBlock(width, height, color):
     msgBlock = pygame.Surface([width, height])
     msgBlock.fill(color)
     return msgBlock
-
+#
 def createMsgBlockBorder(msgBlock):
     startPos = msgBlock.get_rect().topleft
     border = pygame.Rect(startPos[0], startPos[1], msgBlock.get_width(), msgBlock.get_height())
