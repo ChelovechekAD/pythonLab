@@ -110,6 +110,7 @@ def createMsgBlockBorder(msgBlock):
     return border
 
 def gameStart(fps):
+    img = getBackground()
     CONST_FPS = fps
     difficultChanger()
     size = int((HEIGHT - FREE_SPACE) / 2)
@@ -210,7 +211,7 @@ def gameStart(fps):
                                     return
                 if bird.rect.right >= firstTwoPipe[0][0].rect.left and bird.rect.left <= firstTwoPipe[0][0].rect.right:
                     if bird.rect.top <= firstTwoPipe[0][0].rect.bottom or bird.rect.bottom >= firstTwoPipe[0][1].rect.top:
-                        screen.fill(BLACK)
+                        screen.blit(img, (0, 0))
                         print(f"{bird.rect.right},  {firstTwoPipe[0][0].rect.left}")
                         print(f"{bird.rect.top}, {firstTwoPipe[0][0].rect.bottom}")
                         print(f"{bird.rect.bottom}, {firstTwoPipe[0][1].rect.top}")
@@ -227,7 +228,7 @@ def gameStart(fps):
                                         return
 
             all_sprites.update()
-            screen.fill(BLACK)
+            screen.blit(img, (0, 0))
             all_sprites.draw(screen)
             message("score", f"Score: {score}")
             message("info", "info")
@@ -238,7 +239,7 @@ def gameStart(fps):
             pygame.display.flip()
 
 def drawMenu():
-    screen.fill(BLACK)
+    getBackground()
     btn_arr = []
 
     title = MenuElement()
@@ -262,7 +263,7 @@ def drawMenu():
     return btn_arr
 
 def drawDifficultMenu():
-    screen.fill(BLACK)
+    getBackground()
     btn_arr = []
     diff0 = MenuElement()
     diff1 = MenuElement()
@@ -325,7 +326,11 @@ def menuManager():
                 elif msg == "Exit":
                     exit()
 
-
+def getBackground():
+    img = pygame.image.load("images/back.png")
+    img = pygame.transform.scale(img, [WIDTH, HEIGHT])
+    screen.blit(img, (0, 0))
+    return img
 
 def start_cycle():
     gameStart(FPS)
@@ -341,6 +346,6 @@ clock = pygame.time.Clock()
 # Load Menu
 menuManager()
 
-# Run point
+
 
 

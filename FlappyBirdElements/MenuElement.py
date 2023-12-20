@@ -38,7 +38,7 @@ class MenuElement():
             self.height = msg.get_height()
         block = pygame.Surface((self.width, self.height))
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
-        block.fill(BLACK)
+
         block.blit(msg, (0, 0))
         display.blit(block, (x, y))
 
